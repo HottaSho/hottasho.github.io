@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="C,UIUC," />
 
 
 
@@ -84,15 +84,21 @@
 
 
 
-<meta name="description" content="To-do">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hotta Sho Blog">
-<meta property="og:url" content="http://hottasho.github.io/index.html">
+<meta name="description" content="ProcessesOverview
+A process is program that is running (kinda). A process is also just one instance of that computer program running. Processes have a lot of things at their disposal. At the start of">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS241 - Quiz 2">
+<meta property="og:url" content="http://hottasho.github.io/2017/02/17/quiz2/index.html">
 <meta property="og:site_name" content="Hotta Sho Blog">
-<meta property="og:description" content="To-do">
+<meta property="og:description" content="ProcessesOverview
+A process is program that is running (kinda). A process is also just one instance of that computer program running. Processes have a lot of things at their disposal. At the start of">
+<meta property="og:image" content="http://hottasho.github.io/2017/02/17/quiz2/memory_struct.jpg">
+<meta property="og:updated_time" content="2017-02-18T06:32:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hotta Sho Blog">
-<meta name="twitter:description" content="To-do">
+<meta name="twitter:title" content="CS241 - Quiz 2">
+<meta name="twitter:description" content="ProcessesOverview
+A process is program that is running (kinda). A process is also just one instance of that computer program running. Processes have a lot of things at their disposal. At the start of">
+<meta name="twitter:image" content="http://hottasho.github.io/2017/02/17/quiz2/memory_struct.jpg">
 
 
 
@@ -120,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://hottasho.github.io/"/>
+  <link rel="canonical" href="http://hottasho.github.io/2017/02/17/quiz2/"/>
 
 
 
 
 
-  <title> Hotta Sho Blog </title>
+  <title> CS241 - Quiz 2 | Hotta Sho Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -147,9 +153,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -230,9 +234,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -265,10 +269,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/02/17/quiz2/" itemprop="url">
-                  CS241 - Quiz 2
-                </a>
+                CS241 - Quiz 2
               
             
           </h1>
@@ -341,9 +342,7 @@
       
 
       
-        
-          
-            <h1 id="Processes"><a href="#Processes" class="headerlink" title="Processes"></a>Processes</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><blockquote>
+        <h1 id="Processes"><a href="#Processes" class="headerlink" title="Processes"></a>Processes</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><blockquote>
 <p>A process is program that is running (kinda). A process is also just one instance of that computer program running. Processes have a lot of things at their disposal. At the start of each program you get one process, but each program can make more processes. In fact, your operating system starts up with only one process and all other processes are forked off of that – all of that is done under the hood when booting up.</p>
 </blockquote>
 <h2 id="In-the-beginning"><a href="#In-the-beginning" class="headerlink" title="In the beginning"></a>In the beginning</h2><blockquote>
@@ -423,37 +422,48 @@
 </blockquote>
 <p><strong>Fork bomb</strong><br>A ‘fork bomb’ is when you attempt to create an infinite number of processes. A simple example is shown below:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> (<span class="number">1</span>) fork();</div></pre></td></tr></table></figure></p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C</a>
+          
+            <a href="/tags/UIUC/" rel="tag"># UIUC</a>
+          
+        </div>
       
 
       
+
       
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -461,6 +471,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -480,8 +494,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -537,6 +560,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Processes"><span class="nav-number">1.</span> <span class="nav-text">Processes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-number">1.1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#In-the-beginning"><span class="nav-number">1.2.</span> <span class="nav-text">In the beginning</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#What-to-study"><span class="nav-number">2.</span> <span class="nav-text">What to study</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Topics"><span class="nav-number">2.1.</span> <span class="nav-text">Topics:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Questions-Exercises"><span class="nav-number">2.2.</span> <span class="nav-text">Questions/Exercises</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Answers"><span class="nav-number">3.</span> <span class="nav-text">Answers</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Memory-Layout"><span class="nav-number">3.1.</span> <span class="nav-text">Memory Layout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fork-Exec-Wait"><span class="nav-number">3.2.</span> <span class="nav-text">Fork-Exec-Wait</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SIGNALS"><span class="nav-number">3.3.</span> <span class="nav-text">SIGNALS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Forking"><span class="nav-number">3.4.</span> <span class="nav-text">Forking</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
@@ -642,6 +681,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 

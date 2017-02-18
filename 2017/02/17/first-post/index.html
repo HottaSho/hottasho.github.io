@@ -84,34 +84,21 @@
 
 
 
-<meta name="description" content="CS241 Quiz 2Topics:
-
-Correct use of fork, exec and waitpid
-Using exec with a path
-Understanding what fork and exec and waitpid do. E.g. how to use their return values
-SIGKILL vs SIGSTOP vs SIGINT.
-Wha">
+<meta name="description" content="ProcessesOverview
+A process is program that is running (kinda). A process is also just one instance of that computer program running. Processes have a lot of things at their disposal. At the start of">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mark's First Post">
+<meta property="og:title" content="CS241 - Quiz 2">
 <meta property="og:url" content="http://hottasho.github.io/2017/02/17/first-post/index.html">
 <meta property="og:site_name" content="Hotta Sho Blog">
-<meta property="og:description" content="CS241 Quiz 2Topics:
-
-Correct use of fork, exec and waitpid
-Using exec with a path
-Understanding what fork and exec and waitpid do. E.g. how to use their return values
-SIGKILL vs SIGSTOP vs SIGINT.
-Wha">
-<meta property="og:updated_time" content="2017-02-18T05:06:29.000Z">
+<meta property="og:description" content="ProcessesOverview
+A process is program that is running (kinda). A process is also just one instance of that computer program running. Processes have a lot of things at their disposal. At the start of">
+<meta property="og:image" content="http://hottasho.github.io/source/_images/memory_struct.jpg">
+<meta property="og:updated_time" content="2017-02-18T05:40:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mark's First Post">
-<meta name="twitter:description" content="CS241 Quiz 2Topics:
-
-Correct use of fork, exec and waitpid
-Using exec with a path
-Understanding what fork and exec and waitpid do. E.g. how to use their return values
-SIGKILL vs SIGSTOP vs SIGINT.
-Wha">
+<meta name="twitter:title" content="CS241 - Quiz 2">
+<meta name="twitter:description" content="ProcessesOverview
+A process is program that is running (kinda). A process is also just one instance of that computer program running. Processes have a lot of things at their disposal. At the start of">
+<meta name="twitter:image" content="http://hottasho.github.io/source/_images/memory_struct.jpg">
 
 
 
@@ -145,7 +132,7 @@ Wha">
 
 
 
-  <title> Mark's First Post | Hotta Sho Blog </title>
+  <title> CS241 - Quiz 2 | Hotta Sho Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -282,7 +269,7 @@ Wha">
             
             
               
-                Mark's First Post
+                CS241 - Quiz 2
               
             
           </h1>
@@ -320,8 +307,8 @@ Wha">
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/CS241/" itemprop="url" rel="index">
+                    <span itemprop="name">CS241</span>
                   </a>
                 </span>
 
@@ -355,10 +342,22 @@ Wha">
       
 
       
-        <h2 id="CS241-Quiz-2"><a href="#CS241-Quiz-2" class="headerlink" title="CS241 Quiz 2"></a>CS241 Quiz 2</h2><p><strong>Topics:</strong></p>
-<ul>
+        <h1 id="Processes"><a href="#Processes" class="headerlink" title="Processes"></a>Processes</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><blockquote>
+<p>A process is program that is running (kinda). A process is also just one instance of that computer program running. Processes have a lot of things at their disposal. At the start of each program you get one process, but each program can make more processes. In fact, your operating system starts up with only one process and all other processes are forked off of that – all of that is done under the hood when booting up.</p>
+</blockquote>
+<h2 id="In-the-beginning"><a href="#In-the-beginning" class="headerlink" title="In the beginning"></a>In the beginning</h2><blockquote>
+<p>When your operating system starts on a linux machine, there is a process called init.d that gets created. That process is a special one handling signals, interrupts, and a persistence module for certain kernel elements. Whenever you want to make a new process, you call fork (to be discussed in a later section) and use another function to load another program.</p>
+</blockquote>
+<h2 id="Memory-Layout"><a href="#Memory-Layout" class="headerlink" title="Memory Layout"></a>Memory Layout</h2><p><img src="/source/_images/memory_struct.jpg" alt=""></p>
+<h2 id="Topics"><a href="#Topics" class="headerlink" title="Topics:"></a>Topics:</h2><ul>
 <li>Correct use of fork, exec and waitpid</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">pid_t</span> pid = fork();</div><div class="line"></div><div class="line"><span class="keyword">if</span> (pid == <span class="number">-1</span>) &#123;</div><div class="line">	<span class="comment">// fork failed</span></div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (pid == <span class="number">0</span>) &#123;</div><div class="line">	<span class="comment">// child process</span></div><div class="line">	exec(...)</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">	<span class="comment">// parent process</span></div><div class="line">	wait(pid);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
 <li>Using exec with a path</li>
+</ul>
+<p>More generally, here are the list of exec commands.<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* execute the file in the current directory */</span></div><div class="line">execl( path, arg, ... )</div><div class="line"></div><div class="line"><span class="comment">/* executes a file only searching in the path */</span></div><div class="line">execlp( path, arg, ... )</div><div class="line"></div><div class="line"><span class="comment">/* execute the file in path + environment settings */</span></div><div class="line">execle( path, arg, ..., envp[] )</div><div class="line"></div><div class="line"><span class="comment">/* execute the file in current directory */</span></div><div class="line">execv( path, argv[] )</div><div class="line"></div><div class="line"><span class="comment">/* execute the file in the path only */</span></div><div class="line">execvp( file, argv[] )</div><div class="line"></div><div class="line"><span class="comment">/* environment settings */</span></div><div class="line">execvpe( file, argv[], envp[] )</div></pre></td></tr></table></figure></p>
+<ul>
 <li>Understanding what fork and exec and waitpid do. E.g. how to use their return values</li>
 <li>SIGKILL vs SIGSTOP vs SIGINT.</li>
 <li>What signal is sent when you press CTRL-C</li>
@@ -369,11 +368,22 @@ Wha">
 <li>getpid vs getppid</li>
 <li>How to use the WAIT exit status macros WIFEXITED etc.</li>
 </ul>
-<p><strong>Questions/Exercises</strong></p>
-<ul>
+<h2 id="Questions-Exercises"><a href="#Questions-Exercises" class="headerlink" title="Questions/Exercises"></a>Questions/Exercises</h2><ul>
 <li>What is the difference between execs with a p and without a p? What does the operating system</li>
+<li>How do you pass in command line arguments to execl<em>? How about execv</em>? What should be the first command line argument by convention?</li>
+<li>How do you know if exec or fork failed?</li>
+<li>What is the int *status pointer passed into wait? When does wait fail?</li>
+<li>What are some differences between SIGKILL, SIGSTOP, SIGCONT, SIGINT? What are the default behaviors? Which ones can you set up a signal handler for?</li>
+<li>What signal is sent when you press CTRL-C?</li>
+<li>My terminal is anchored to PID = 1337 and has just become unresponsive. Write me the terminal command and the C code to send SIGQUIT to it.</li>
+<li>Can one process alter another processes memory through normal means? Why?</li>
+<li>Where is the heap, stack, data, and text segment? Which segments can you write to? What are invalid memory addresses?</li>
+<li>Code me up a fork bomb in C (please don’t run it).</li>
+<li>What is an orphan? How does it become a zombie? How do I be a good parent?</li>
+<li>Don’t you hate it when your parents tell you that you can’t do something? Write me a program that sends SIGSTOP to your parent.</li>
+<li>Write a function that fork exec waits an executable, and using the wait macros tells me if the process exited normally or if it was signaled. If the process exited normally, then print that with the return value. If not, then print the signal number that caused the process to terminate.</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">```java</div><div class="line">public void main() &#123;</div><div class="line">	System.out.println(&quot;Hello World&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -403,22 +413,6 @@ Wha">
         </div>
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/12/31/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
       
 
       
@@ -485,7 +479,7 @@ Wha">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -494,7 +488,7 @@ Wha">
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">categories</span>
               
             </div>
@@ -538,7 +532,7 @@ Wha">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CS241-Quiz-2"><span class="nav-number">1.</span> <span class="nav-text">CS241 Quiz 2</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Processes"><span class="nav-number">1.</span> <span class="nav-text">Processes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-number">1.1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#In-the-beginning"><span class="nav-number">1.2.</span> <span class="nav-text">In the beginning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memory-Layout"><span class="nav-number">1.3.</span> <span class="nav-text">Memory Layout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Topics"><span class="nav-number">1.4.</span> <span class="nav-text">Topics:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Questions-Exercises"><span class="nav-number">1.5.</span> <span class="nav-text">Questions/Exercises</span></a></li></ol></li></ol></div>
             
 
           </div>
